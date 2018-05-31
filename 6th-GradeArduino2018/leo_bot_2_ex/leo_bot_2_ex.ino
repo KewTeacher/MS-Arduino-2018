@@ -73,17 +73,25 @@ void loop() {
   Serial.println();
   
   //delay(100);
-  if (inches>20){
+  if (inches>10){
   myMotorL->run(FORWARD);
   myMotorL->setSpeed(speedL);
   myMotorR->run(FORWARD);
   myMotorR->setSpeed(speedR);
   }
-  else if (inches<5){
-  myMotorL->run(FORWARD);
-  myMotorL->setSpeed(speedL);
+  else if (inches<3){
+  myMotorL->run(BACKWARD);
+  myMotorL->setSpeed(speedL/2);
   myMotorR->run(BACKWARD);
-  myMotorR->setSpeed(speedR);
+  myMotorR->setSpeed(speedR/2);
+  delay(1000); 
+  }else if (inches<8){
+     myMotorL->run(FORWARD);
+  myMotorL->setSpeed(speedL/2);
+  myMotorR->run(BACKWARD);
+  myMotorR->setSpeed(speedR/2);
+  delay(500);
+    
   }else{
      myMotorL->run(BACKWARD);
   myMotorL->setSpeed(speedL/2);
@@ -92,8 +100,10 @@ void loop() {
   }
   delay(10); 
   
-}
+  
 
+  
+}
 
 long microsecondsToInches(long microseconds)
 {
