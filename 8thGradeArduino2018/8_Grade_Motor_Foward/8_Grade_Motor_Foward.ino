@@ -20,8 +20,8 @@ Adafruit_DCMotor *myMotorL = AFMS.getMotor(1);
 Adafruit_DCMotor *myMotorR = AFMS.getMotor(2);
 // You can also make another motor on port M2 
 //Adafruit_DCMotor *myOtherMotor = AFMS.getMotor(2);
-int speedL = 120;
-int speedR = 120;
+int speedL = 70;
+int speedR = 70;
 
 const int trigPin = 2;
 const int echoPin = 4;
@@ -77,13 +77,14 @@ void loop() {
   Serial.println();
   
   delay(100);
-if (inches<20){
+if (inches<35 ){
   myMotorL->run(BACKWARD);
-  myMotorL->setSpeed(speedL);
+  myMotorL->setSpeed(speedL/2);
   myMotorR->run(FORWARD);
-  myMotorR->setSpeed(speedR);
+  myMotorR->setSpeed(speedR/2);
+  delay(100);
 }else{
-  myMotorL->run(FORWARD);
+  myMotorL->run(FORWARD); 
   myMotorL->setSpeed(speedL);
   myMotorR->run(FORWARD);
   myMotorR->setSpeed(speedR);
