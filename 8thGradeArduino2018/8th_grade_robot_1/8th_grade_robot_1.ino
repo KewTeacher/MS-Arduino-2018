@@ -1,4 +1,4 @@
-int motorPinR = 3;
+ int motorPinR = 3;
 int motorPinL = 5;
 
 int speedL = 255;
