@@ -73,16 +73,17 @@ void loop() {
   Serial.print("cm");
   Serial.println();
   
-  delay(100);
+  delay(10);
   //Serial.print("tick") ; 
  
-if (inches < 20){
+if (inches < 400){
   myMotorL->run(BACKWARD);
   myMotorR->run(FORWARD);
   
   myMotorL->setSpeed(50); 
   myMotorR->setSpeed(50);
-}else if (inches < 40){
+  delay(100);
+}else if (inches >= 400){
  myMotorL->run(FORWARD);
   myMotorR->run(FORWARD);
   
